@@ -3,7 +3,6 @@
 from resources.gui.app import *
 from pythonzenity import Warning
 import resources.XboxController
-import pygame
 import sys
     
 if __name__ == "__main__":
