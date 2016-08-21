@@ -3,7 +3,7 @@ THISHOST=$(hostname -f)
 echo ${THISHOST}
 if [ $THISHOST = "Iains-Laptop" ]; then
     BASEDIR='/home/iainstott/GitRepo/Submersible/'
-if [ $THISHOST = "submarine-pi" ]; then
+else if [ $THISHOST = "submarine-pi" ]; then
     BASEDIR='/home/pi/Submersible/'
 else
     break
