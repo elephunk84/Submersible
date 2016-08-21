@@ -7,11 +7,13 @@ import pygame
 import sys
 
 try:
-    xboxCont = resources.XboxController.XboxController(controllerCallBack = None, deadzone = 0.1, scale = 1, invertYAxis = False)
+    xboxCont = resources.XboxController.XboxController(controllerCallBack = None, joystickNo = 0, deadzone = 0.1, scale = 1, invertYAxis = False)
     xboxCont.start()
+    pass
 except pygame.error:
     e = sys.exc_info()[1]
     Warning(text="PyGame Error: %s" % e)
+    pass
     
 if __name__ == "__main__":
     gettext.install("app") # replace with the appropriate catalog name
