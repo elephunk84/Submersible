@@ -1,7 +1,6 @@
 #!/usr/bin/python
 from resources.gui.app import *
 from pythonzenity import Warning
-import sys
     
 if __name__ == "__main__":
     gettext.install("app") # replace with the appropriate catalog name
