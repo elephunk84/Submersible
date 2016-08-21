@@ -10,10 +10,10 @@ case "${THISHOST}" in
 esac
 cd ${BASEDIR}
 find . -name "*.pyc" -type f -delete
-git pull
-pkill xboxdrv
-sudo pkill xboxdrv
-sudo rmmod xpad
-python ./run.py
+git pull >> /dev/null
+pkill xboxdrv >> /dev/null
+sudo pkill xboxdrv >> /dev/null
+sudo rmmod xpad >> /dev/null
+python ./run.py &
 sudo xboxdrv --config ./resources/xboxdrv.conf
 # EOF #
