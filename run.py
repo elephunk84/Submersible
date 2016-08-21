@@ -9,4 +9,3 @@ if __name__ == "__main__":
     app.SetTopWindow(Sub_Control)
     Sub_Control.Show()
     app.MainLoop()
-
