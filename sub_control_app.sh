@@ -3,7 +3,7 @@ THISHOST=$(hostname -f)
 if [ $THISHOST = "Iains-Laptop" ]
 then
     BASEDIR='/home/iainstott/GitRepo/Submersible/'
-if [ $THISHOST = "submersible-pi" ]
+if [ $THISHOST = "submarine-pi" ]
 then
     BASEDIR='/home/pi/Submersible/'
 fi

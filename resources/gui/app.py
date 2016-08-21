@@ -40,7 +40,7 @@ class MyFrame(wx.Frame):
     def __set_properties(self):
         # begin wxGlade: MyFrame.__set_properties
         self.SetTitle(_("Main Window"))
-        self.SetSize((1024, 768))
+        self.SetSize((800, 600))
         self.slider_1.SetToolTipString(_("LED Brightness"))
         # end wxGlade
 
