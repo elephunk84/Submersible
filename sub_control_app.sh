@@ -1,6 +1,5 @@
 #!/bin/bash
 THISHOST=$(hostname -f)
-echo ${THISHOST}
 case "${THISHOST}" in
     Iains-Laptop)
         BASEDIR='/home/iainstott/GitRepo/Submersible/'
@@ -9,11 +8,12 @@ case "${THISHOST}" in
         BASEDIR='/home/pi/Submersible/'
         ;;
 esac
-echo ${BASEDIR}
+cd ${BASEDIR}
+find . -name "*.pyc" -type f -delete
+git pull >> /dev/null
 pkill xboxdrv >> /dev/null
 sudo pkill xboxdrv >> /dev/null
-git pull >> /dev/null
 sudo rmmod xpad >> /dev/null
-python ${BASEDIR}/run.py &
-sudo xboxdrv --config ${BASEDIR}/resources/xboxdrv.conf
+python ./run.py &
+sudo xboxdrv --config ./resources/xboxdrv.conf
 # EOF #
