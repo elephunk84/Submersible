@@ -19,7 +19,7 @@ def setBase():
     
 def xBoxController():
     if (hostname == 'submarine-pi' ):
-        subprocess.call(['xterm', '-e',  './resources/XboxController.py'])
+        subprocess.call(['lxterm', '-e',  './resources/XboxController.py'])
     else:
         pass
         
