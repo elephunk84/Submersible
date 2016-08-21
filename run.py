@@ -2,7 +2,7 @@
 from resources.gui.app import *
 import resources.XboxController
 
-xboxCont = XboxController.XboxController(
+xboxCont = resources.XboxController.XboxController(
     controllerCallBack = None,
     joystickNo = 0,
     deadzone = 0.1,
@@ -10,5 +10,12 @@ xboxCont = XboxController.XboxController(
     invertYAxis = False)
     
 if __name__ == "__main__":
+    gettext.install("app") # replace with the appropriate catalog name
+    app = wx.PySimpleApp(0)
+    wx.InitAllImageHandlers()
+    MainWindow = MyFrame(None, wx.ID_ANY, "")
+    app.SetTopWindow(MainWindow)
+    MainWindow.Show()
+    app.MainLoop()
     xboxCont.start()
-    gui()
+    
