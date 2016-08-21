@@ -1,13 +1,18 @@
 #!/usr/bin/python
+
+import os
+import socket
+import subprocess
 from resources.gui.app import *
 from pythonzenity import Warning
+
+hostname=(socket.gethostname())
+if ( hostname == 'Iains-Laptop'):
+    basedir='/home/iainstott/GitRepo/Submersible'
+elif ( hostname == 'submarine-pi'):
+    basedir='/home/pi/Submersible'
+    
     
 if __name__ == "__main__":
-    gettext.install("app") # replace with the appropriate catalog name
-    app = wx.App(0)
-    wx.InitAllImageHandlers()
-    MainWindow = MyFrame(None, wx.ID_ANY, "")
-    app.SetTopWindow(MainWindow)
-    MainWindow.Show()
-    app.MainLoop()
-    
+    os.chdir(basedir)
+    subprocess.Popen('./resources/gui/app.py')
