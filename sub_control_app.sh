@@ -1,7 +1,7 @@
 #!/bin/bash
-pkill xboxdrv
-sudo pkill xboxdrv
-git pull
-sudo rmmod xpad
+pkill xboxdrv >> /dev/null
+sudo pkill xboxdrv >> /dev/null
+git pull >> /dev/null
+sudo rmmod xpad >> /dev/null
 python run.py &
-sudo xboxdrv --config ./resources/xboxdrv.conf --detach-kernel-driver --silent &
+sudo xboxdrv --config ./resources/xboxdrv.conf
