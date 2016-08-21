@@ -6,13 +6,23 @@ import subprocess
 from resources.gui.app import *
 from pythonzenity import Warning
 
-hostname=(socket.gethostname())
-if ( hostname == 'Iains-Laptop'):
-    basedir='/home/iainstott/GitRepo/Submersible'
-elif ( hostname == 'submarine-pi'):
-    basedir='/home/pi/Submersible'
-    
-    
-if __name__ == "__main__":
+laptopbasedir='/home/iainstott/GitRepo/Submersible'
+submarinebasedir='/home/pi/Submersible'
+
+def setBase():
+    hostname=(socket.gethostname())
+    if ( hostname == 'Iains-Laptop'):
+        basedir=laptopbasedir
+    elif ( hostname == 'submarine-pi'):
+        basedir=submarinebasedir
     os.chdir(basedir)
+    
+def xBoxController():
+    if (hostname == 'submarine-pi' ):
+        subprocess.call(['xterm', '-e',  './resources/XboxController.py'])
+    else:
+        pass
+        
+if __name__ == "__main__":
+    setBase()
     subprocess.Popen('./resources/gui/app.py')
