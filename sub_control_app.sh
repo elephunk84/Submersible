@@ -14,6 +14,6 @@ git pull
 pkill xboxdrv
 sudo pkill xboxdrv
 sudo rmmod xpad
-python ./run.py 
+python ./run.py  
 sudo xboxdrv --config ./resources/xboxdrv.conf
 # EOF #
