@@ -9,6 +9,7 @@ then
 else
     break
 fi
+echo ${BASEDIR}
 pkill xboxdrv >> /dev/null
 sudo pkill xboxdrv >> /dev/null
 git pull >> /dev/null
