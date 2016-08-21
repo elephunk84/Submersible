@@ -8,7 +8,7 @@ import sys
 
 def mainWindow():
     gettext.install("app") # replace with the appropriate catalog name
-    app = wx.PySimpleApp(0)
+    app = wx.App()
     wx.InitAllImageHandlers()
     MainWindow = MyFrame(None, wx.ID_ANY, "")
     app.SetTopWindow(MainWindow)
