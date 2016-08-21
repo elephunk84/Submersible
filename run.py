@@ -2,8 +2,12 @@
 ###
 from resources.gui.app import *
 import resources.XboxController
+import pygame
 
-xboxCont = resources.XboxController.XboxController(controllerCallBack = None, deadzone = 0.1, scale = 1, invertYAxis = False)
+try:
+    xboxCont = resources.XboxController.XboxController(controllerCallBack = None, deadzone = 0.1, scale = 1, invertYAxis = False)
+except pygame.error:
+    print('error')
     
 if __name__ == "__main__":
     gettext.install("app") # replace with the appropriate catalog name
@@ -13,5 +17,4 @@ if __name__ == "__main__":
     app.SetTopWindow(MainWindow)
     MainWindow.Show()
     app.MainLoop()
-    xboxCont.start()
     
