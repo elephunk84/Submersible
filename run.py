@@ -3,7 +3,7 @@
 from resources.gui.app import *
 import resources.XboxController
 
-xboxCont = resources.XboxController.XboxController(controllerCallBack = None, joystickNo = 1, deadzone = 0.1, scale = 1, invertYAxis = False)
+xboxCont = resources.XboxController.XboxController(controllerCallBack = None, deadzone = 0.1, scale = 1, invertYAxis = False)
     
 if __name__ == "__main__":
     gettext.install("app") # replace with the appropriate catalog name
