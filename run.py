@@ -16,10 +16,4 @@ def mainWindow():
     app.MainLoop()
     
 if __name__ == "__main__":
-    #try:
-        #xboxCont = resources.XboxController.XboxController(controllerCallBack = None, joystickNo = 0, deadzone = 0.1, scale = 1, invertYAxis = False)
-        #xboxCont.start()
-    #except pygame.error:
-        #e = sys.exc_info()[1]
-        #Warning(text="PyGame Error: %s" % e)
     mainWindow()

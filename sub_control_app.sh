@@ -9,8 +9,6 @@ case "${THISHOST}" in
         ;;
 esac
 cd ${BASEDIR}
-find . -name "*.pyc" -type f -delete
-git pull >> /dev/null
 pkill xboxdrv >> /dev/null
 sudo pkill xboxdrv >> /dev/null
 sudo rmmod xpad >> /dev/null
