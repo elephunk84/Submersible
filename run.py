@@ -5,8 +5,8 @@ from pythonzenity import Warning
 import resources.XboxController
 import pygame
 import sys
-
-def mainWindow():
+    
+if __name__ == "__main__":
     gettext.install("app") # replace with the appropriate catalog name
     app = wx.App()
     wx.InitAllImageHandlers()
@@ -15,5 +15,3 @@ def mainWindow():
     MainWindow.Show()
     app.MainLoop()
     
-if __name__ == "__main__":
-    mainWindow()
