@@ -1,10 +1,8 @@
 #!/bin/bash
 THISHOST=$(hostname -f)
-if [ $THISHOST = "Iains-Laptop" ]
-then
+if [ $THISHOST = "Iains-Laptop" ]; then
     BASEDIR='/home/iainstott/GitRepo/Submersible/'
-if [ $THISHOST = "submarine-pi" ]
-then
+if [ $THISHOST = "submarine-pi" ]; then
     BASEDIR='/home/pi/Submersible/'
 else
     break
