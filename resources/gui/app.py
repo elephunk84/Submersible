@@ -135,7 +135,7 @@ class Main_menu(wx.MenuBar):
         # end wxGlade
 
 # end of class Main_menu
-if __name__ == "__main__":
+def gui():
     gettext.install("app") # replace with the appropriate catalog name
 
     app = wx.PySimpleApp(0)

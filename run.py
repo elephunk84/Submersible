@@ -8,17 +8,7 @@ xboxCont = XboxController.XboxController(
     deadzone = 0.1,
     scale = 1,
     invertYAxis = False)
-xboxCont.start()
     
-def gui():
-    gettext.install("app")
-    app = wx.PySimpleApp(0)
-    wx.InitAllImageHandlers()
-    Sub_Control = MyFrame(None, wx.ID_ANY, "")
-    app.SetTopWindow(Sub_Control)
-    Sub_Control.Show()
-    app.MainLoop()
-
-
 if __name__ == "__main__":
+    xboxCont.start()
     gui()
