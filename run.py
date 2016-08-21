@@ -1,5 +1,4 @@
 #!/usr/bin/python
-###
 from resources.gui.app import *
 from pythonzenity import Warning
 import sys
