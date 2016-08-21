@@ -10,7 +10,7 @@ xboxCont = XboxController.XboxController(
     invertYAxis = False)
 xboxCont.start()
     
-if __name__ == "__main__":
+def gui():
     gettext.install("app")
     app = wx.PySimpleApp(0)
     wx.InitAllImageHandlers()
@@ -18,3 +18,7 @@ if __name__ == "__main__":
     app.SetTopWindow(Sub_Control)
     Sub_Control.Show()
     app.MainLoop()
+
+
+if __name__ == "__main__":
+    gui()
