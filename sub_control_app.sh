@@ -6,7 +6,7 @@ case "${THISHOST}" in
         ;;
     submarine-pi)
         BASEDIR='/home/pi/Submersible/'
-        /usr/bin/xterminal sudo xboxdrv --config ./resources/xboxdrv.conf --detach-kernel-driver 
+        /usr/bin/lxterminal sudo xboxdrv --config ./resources/xboxdrv.conf --detach-kernel-driver 
         ;;
 esac
 cd ${BASEDIR}
