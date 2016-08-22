@@ -20,7 +20,7 @@ def setBase():
 def xBoxController():
     if (hostname == 'submarine-pi' ):
         try:
-            subprocess.call(['/usr/bin/lxterminal', '-c',  './resources/XboxController.py'])
+            subprocess.call('/usr/bin/lxterminal' './resources/XboxController.py')
         except subprocess.CalledProcessError as e:
             print e.output
     else:
