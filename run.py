@@ -5,6 +5,7 @@ import os
 import socket
 import subprocess
 from resources.gui.app import *
+import resources.XboxController as Controller
 from pythonzenity import Warning, Message, Error
 
 laptopbasedir='/home/iainstott/GitRepo/Submersible'
@@ -22,11 +23,13 @@ def setBase():
     
 def xBoxController():
     if (hostname == 'submarine-pi' ):
-        try:
-            subprocess.call("lxterminal python resources/XboxController.py")
-        except subprocess.CalledProcessError as e:
-            errortext=e.output()
-            Error(text=errortext)
+        xboxCont = Controller.XboxController(
+            controllerCallBack = None,
+            joystickNo = 0,
+            deadzone = 0.1,
+            scale = 1,
+            invertYAxis = False)   
+        xboxCont.start()
     else:
         Message(text="Test Environment")
         
