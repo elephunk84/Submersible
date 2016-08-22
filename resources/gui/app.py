@@ -140,7 +140,6 @@ if __name__ == "__main__":
     gettext.install("app") # replace with the appropriate catalog name
 
     app = wx.App(0)
-    wx.InitAllImageHandlers()
     MainWindow = MyFrame(None, wx.ID_ANY, "")
     app.SetTopWindow(MainWindow)
     MainWindow.Show()
