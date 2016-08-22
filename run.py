@@ -25,7 +25,8 @@ def xBoxController():
         try:
             subprocess.call("/usr/bin/lxterminal python ./resources/XboxController.py")
         except subprocess.CalledProcessError as e:
-            Error(text=e.output())
+            errortext=e.output()
+            Error(text=errortext)
     else:
         Message(text="Test Environment")
         
