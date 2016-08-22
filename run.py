@@ -35,5 +35,4 @@ def xBoxController():
         
 if __name__ == "__main__":
     setBase()
-    xBoxController()
     subprocess.Popen('resources/gui/app.py')
