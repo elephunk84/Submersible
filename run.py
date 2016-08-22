@@ -13,9 +13,8 @@ import sys
 
 FORMAT = 'llHHI'
 EVENT_SIZE = struct.calcsize(FORMAT)
+infile_path = "/dev/input/event2"
 in_file = open(infile_path, "rb")
-event = in_file.read(EVENT_SIZE)
-infile_path = "/dev/input/event2")
 laptopbasedir='/home/iainstott/GitRepo/Submersible'
 submarinebasedir='/home/pi/Submersible'
 hostname=(socket.gethostname())
@@ -44,6 +43,7 @@ def xBoxController():
 if __name__ == "__main__":
     setBase()
     subprocess.Popen('resources/gui/app.py')
+    event = in_file.read(EVENT_SIZE)
     while event:
         (tv_sec, tv_usec, type, code, value) = struct.unpack(FORMAT, event)
         if type != 0 or code != 0 or value != 0:
