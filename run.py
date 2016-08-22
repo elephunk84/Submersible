@@ -23,7 +23,9 @@ def xBoxController():
             subprocess.call(['/usr/bin/lxterm', '-c',  './resources/XboxController.py'])
         except subprocess.CalledProcessError as e:
             print e.output
-                    
+    else:
+        pass
+        
 if __name__ == "__main__":
     setBase()
     subprocess.Popen('./resources/gui/app.py')
