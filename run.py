@@ -7,7 +7,15 @@ import subprocess
 from resources.gui.app import *
 import resources.XboxController as Controller
 from pythonzenity import Warning, Message, Error
+import struct
+import time
+import sys
 
+FORMAT = 'llHHI'
+EVENT_SIZE = struct.calcsize(FORMAT)
+in_file = open(infile_path, "rb")
+event = in_file.read(EVENT_SIZE)
+infile_path = "/dev/input/event2")
 laptopbasedir='/home/iainstott/GitRepo/Submersible'
 submarinebasedir='/home/pi/Submersible'
 hostname=(socket.gethostname())
@@ -36,3 +44,12 @@ def xBoxController():
 if __name__ == "__main__":
     setBase()
     subprocess.Popen('resources/gui/app.py')
+    while event:
+        (tv_sec, tv_usec, type, code, value) = struct.unpack(FORMAT, event)
+        if type != 0 or code != 0 or value != 0:
+            print("Event type %u, code %u, value %u at %d.%d" % \
+                (type, code, value, tv_sec, tv_usec))
+        else:
+            print("===========================================")
+            event = in_file.read(EVENT_SIZE)
+    in_file.close()
