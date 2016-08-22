@@ -1,31 +1,34 @@
 #!/usr/bin/python
 
+import sys
 import os
 import socket
 import subprocess
 from resources.gui.app import *
-from pythonzenity import Warning
+from pythonzenity import Warning, Message, Error
 
 laptopbasedir='/home/iainstott/GitRepo/Submersible'
 submarinebasedir='/home/pi/Submersible'
+hostname=(socket.gethostname())
 
 def setBase():
-    hostname=(socket.gethostname())
     if ( hostname == 'Iains-Laptop'):
         basedir=laptopbasedir
     elif ( hostname == 'submarine-pi'):
         basedir=submarinebasedir
     os.chdir(basedir)
+    sys.path.append(basedir)
     
 def xBoxController():
     if (hostname == 'submarine-pi' ):
         try:
             subprocess.Popen("'/usr/bin/lxterminal' './resources/XboxController.py'")
         except subprocess.CalledProcessError as e:
-            print e.output
+            Error(text=e.output)
     else:
-        pass
+        Error(text="Test Environment")
         
 if __name__ == "__main__":
     setBase()
-    subprocess.Popen('./resources/gui/app.py')
+    xBoxController()
+    subprocess.Popen('resources/gui/app.py')
