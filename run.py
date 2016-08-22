@@ -10,6 +10,7 @@ from pythonzenity import Warning, Message, Error
 laptopbasedir='/home/iainstott/GitRepo/Submersible'
 submarinebasedir='/home/pi/Submersible'
 hostname=(socket.gethostname())
+basedir=''
 
 def setBase():
     if ( hostname == 'Iains-Laptop'):
