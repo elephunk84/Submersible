@@ -6,7 +6,6 @@ case "${THISHOST}" in
         ;;
     submarine-pi)
         BASEDIR='/home/pi/Submersible/'
-        /bin/sleep 20
         ;;
 esac
 cd ${BASEDIR}
