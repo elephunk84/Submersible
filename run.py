@@ -19,10 +19,11 @@ def setBase():
     
 def xBoxController():
     if (hostname == 'submarine-pi' ):
-        subprocess.call(['/usr/bin/lxterm', '-c',  './resources/XboxController.py'])
-    else:
-        pass
-        
+        try:
+            subprocess.call(['/usr/bin/lxterm', '-c',  './resources/XboxController.py'])
+        except subprocess.CalledProcessError as e:
+            print e.output
+                    
 if __name__ == "__main__":
     setBase()
     subprocess.Popen('./resources/gui/app.py')
