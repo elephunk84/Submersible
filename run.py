@@ -11,9 +11,9 @@ import resources.XboxController as XboxController
 from pythonzenity import Warning, Message, Error
 
 infile_path = ''
+in_file = ''
 FORMAT = 'llHHI'
 EVENT_SIZE = struct.calcsize(FORMAT)
-in_file = open(infile_path, "rb")
 event = in_file.read(EVENT_SIZE)
 laptopbasedir='/home/iainstott/GitRepo/Submersible'
 submarinebasedir='/home/pi/Submersible'
@@ -27,6 +27,7 @@ def setBase():
     elif ( hostname == 'submarine-pi'):
         basedir=submarinebasedir
         infile_path = "/dev/input/event2"
+        in_file = open(infile_path, "rb")
     os.chdir(basedir)
     sys.path.append(basedir)
             
