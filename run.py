@@ -5,7 +5,7 @@ import os
 import socket
 import subprocess
 from resources.gui.app import *
-import resources.XboxController as Controller
+import resources.XboxController as XboxController
 from pythonzenity import Warning, Message, Error
 from evdev import InputDevice, categorize
 
@@ -24,7 +24,7 @@ def setBase():
     
 def xBoxController():
     if (hostname == 'submarine-pi' ):
-        xboxCont = Controller.XboxController(
+        xboxCont = XboxController.XboxController(
             controllerCallBack = None,
             joystickNo = 0,
             deadzone = 0.1,
@@ -36,4 +36,5 @@ def xBoxController():
         
 if __name__ == "__main__":
     setBase()
+    xBoxController()
     subprocess.Popen('resources/gui/app.py')
