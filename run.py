@@ -1,5 +1,7 @@
 #!/usr/bin/python
 
+import struct
+import time
 import sys
 import os
 import socket
@@ -8,7 +10,7 @@ from resources.gui.app import *
 import resources.XboxController as XboxController
 from pythonzenity import Warning, Message, Error
 
-infile_path = "/dev/input/event2"
+infile_path = ''
 FORMAT = 'llHHI'
 EVENT_SIZE = struct.calcsize(FORMAT)
 in_file = open(infile_path, "rb")
@@ -24,6 +26,7 @@ def setBase():
         basedir=laptopbasedir
     elif ( hostname == 'submarine-pi'):
         basedir=submarinebasedir
+        infile_path = "/dev/input/event2"
     os.chdir(basedir)
     sys.path.append(basedir)
             
