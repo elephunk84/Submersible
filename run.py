@@ -7,12 +7,17 @@ import subprocess
 from resources.gui.app import *
 import resources.XboxController as XboxController
 from pythonzenity import Warning, Message, Error
-from evdev import InputDevice, categorize
 
+infile_path = "/dev/input/event2"
+FORMAT = 'llHHI'
+EVENT_SIZE = struct.calcsize(FORMAT)
+in_file = open(infile_path, "rb")
+event = in_file.read(EVENT_SIZE)
 laptopbasedir='/home/iainstott/GitRepo/Submersible'
 submarinebasedir='/home/pi/Submersible'
 hostname=(socket.gethostname())
 basedir=''
+
 
 def setBase():
     if ( hostname == 'Iains-Laptop'):
@@ -21,20 +26,17 @@ def setBase():
         basedir=submarinebasedir
     os.chdir(basedir)
     sys.path.append(basedir)
-    
-def xBoxController():
-    if (hostname == 'submarine-pi' ):
-        xboxCont = XboxController.XboxController(
-            controllerCallBack = None,
-            joystickNo = 0,
-            deadzone = 0.1,
-            scale = 1,
-            invertYAxis = False)   
-        xboxCont.start()
-    else:
-        Message(text="Test Environment")
-        
+            
 if __name__ == "__main__":
     setBase()
-    xBoxController()
     subprocess.Popen('resources/gui/app.py')
+    while event:
+        (tv_sec, tv_usec, type, code, value) = struct.unpack(FORMAT, event)
+    if type != 0 or code != 0 or value != 0:
+        print("Event type %u, code %u, value %u at %d.%d" % \
+            (type, code, value, tv_sec, tv_usec))
+    else:
+        # Events with code, type and value == 0 are "separator" events
+        print("===========================================")
+        event = in_file.read(EVENT_SIZE)
+    in_file.close()
