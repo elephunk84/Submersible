@@ -8,7 +8,6 @@ from resources.gui.app import *
 import resources.XboxController as Controller
 from pythonzenity import Warning, Message, Error
 from evdev import InputDevice, categorize
-dev = InputDevice('/dev/input/event2')
 
 laptopbasedir='/home/iainstott/GitRepo/Submersible'
 submarinebasedir='/home/pi/Submersible'
@@ -37,5 +36,4 @@ def xBoxController():
         
 if __name__ == "__main__":
     setBase()
-    xBoxController()
-    #subprocess.Popen('resources/gui/app.py')
+    subprocess.Popen('resources/gui/app.py')
