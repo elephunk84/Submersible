@@ -10,6 +10,12 @@ from resources.gui.app import *
 import resources.XboxController as XboxController
 from pythonzenity import Warning, Message, Error
 
+FORMAT = 'llHHI'
+EVENT_SIZE = struct.calcsize(FORMAT)
+event = in_file.read(EVENT_SIZE)
+infile_path = "/dev/input/js1"
+in_file = open(infile_path, "rb")
+    
 laptopbasedir='/home/iainstott/GitRepo/Submersible'
 submarinebasedir='/home/pi/Submersible'
 hostname=(socket.gethostname())
@@ -27,11 +33,6 @@ def setBase():
 if __name__ == "__main__":
     setBase()
     subprocess.Popen('resources/gui/app.py')
-    FORMAT = 'llHHI'
-    EVENT_SIZE = struct.calcsize(FORMAT)
-    event = in_file.read(EVENT_SIZE)
-    infile_path = "/dev/input/js1"
-    in_file = open(infile_path, "rb")
     while event:
         (tv_sec, tv_usec, type, code, value) = struct.unpack(FORMAT, event)
     if type != 0 or code != 0 or value != 0:
