@@ -10,11 +10,11 @@ from resources.gui.app import *
 import resources.XboxController as XboxController
 from pythonzenity import Warning, Message, Error
 
-infile_path = ''
-in_file = ''
-FORMAT = 'llHHI'
-EVENT_SIZE = struct.calcsize(FORMAT)
-event = in_file.read(EVENT_SIZE)
+#infile_path = ''
+#in_file = ''
+#FORMAT = 'llHHI'
+#EVENT_SIZE = struct.calcsize(FORMAT)
+#event = in_file.read(EVENT_SIZE)
 laptopbasedir='/home/iainstott/GitRepo/Submersible'
 submarinebasedir='/home/pi/Submersible'
 hostname=(socket.gethostname())
