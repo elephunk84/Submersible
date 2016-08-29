@@ -9,6 +9,6 @@ case "${THISHOST}" in
         ;;
 esac
 cd ${BASEDIR}
-sudo python ./run.py 
+python ./run.py 
 
 # EOF #
