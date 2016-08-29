@@ -30,7 +30,7 @@ if __name__ == "__main__":
     FORMAT = 'llHHI'
     EVENT_SIZE = struct.calcsize(FORMAT)
     event = in_file.read(EVENT_SIZE)
-    infile_path = "/dev/input/event2"
+    infile_path = "/dev/input/js1"
     in_file = open(infile_path, "rb")
     while event:
         (tv_sec, tv_usec, type, code, value) = struct.unpack(FORMAT, event)
