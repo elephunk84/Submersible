@@ -15,13 +15,12 @@ submarinebasedir='/home/pi/Submersible'
 hostname=(socket.gethostname())
 basedir=''
 
-xboxCont = XboxController.XboxController(
-    controllerCallBack = None,
-    joystickNo = 0,
-    deadzone = 0.1,
-    scale = 1,
-    invertYAxis = False)
+def myCallBack(controlId, value):
+    print "Control id = {}, Value = {}".format(controlId, value)
 
+xboxCont = XboxController.XboxController(
+    controllerCallBack = myCallBack)
+    
 def setBase():
     if ( hostname == 'Iains-Laptop'):
         basedir=laptopbasedir
@@ -33,4 +32,4 @@ def setBase():
 if __name__ == "__main__":
     setBase()
     subprocess.Popen('resources/gui/app.py')
-    
+    xboxCont.start()
