@@ -31,6 +31,5 @@ def setBase():
             
 if __name__ == "__main__":
     setBase()
-    GUI.showGUI()
     xboxCont.start()
     
