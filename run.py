@@ -6,15 +6,16 @@ import sys
 import os
 import socket
 import subprocess
-import thread
+import threading
 import resources.gui.app as gui
 import resources.XboxController as XboxController
 from pythonzenity import Warning, Message, Error
     
-laptopbasedir='/home/iainstott/GitRepo/Submersible'
-submarinebasedir='/home/pi/Submersible'
-hostname=(socket.gethostname())
-basedir=''
+laptopbasedir = '/home/iainstott/GitRepo/Submersible'
+submarinebasedir = '/home/pi/Submersible'
+hostname = (socket.gethostname())
+basedir = ''
+threads = []
 
 def myCallBack(controlId, value):
     print "Control id = {}, Value = {}".format(controlId, value)
@@ -32,5 +33,7 @@ def setBase():
             
 if __name__ == "__main__":
     setBase()
-    thread.start_new_thread( gui.showGUI, ("GUI Thread") )
+    t1 = threading.Thread(target=gui.showGUI)
+    threads.append(t1)
+    t1.start()
     xboxCont.start()
