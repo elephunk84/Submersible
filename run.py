@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/usr/bin/python
 
 import struct
 import time
@@ -6,7 +6,8 @@ import sys
 import os
 import socket
 import subprocess
-import resources.gui.app as app
+import thread
+import resources.gui.app as gui
 import resources.XboxController as XboxController
 from pythonzenity import Warning, Message, Error
     
@@ -31,6 +32,5 @@ def setBase():
             
 if __name__ == "__main__":
     setBase()
+    thread.start_new_thread( gui.showGUI )
     xboxCont.start()
-    app.showGUI()
-    
