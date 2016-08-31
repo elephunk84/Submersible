@@ -6,7 +6,7 @@ import sys
 import os
 import socket
 import subprocess
-from resources.gui.app import *
+import resources.gui.app as app
 import resources.XboxController as XboxController
 from pythonzenity import Warning, Message, Error
     
@@ -32,4 +32,5 @@ def setBase():
 if __name__ == "__main__":
     setBase()
     xboxCont.start()
+    app.showGUI()
     
