@@ -32,5 +32,5 @@ def setBase():
             
 if __name__ == "__main__":
     setBase()
-    thread.start_new_thread( gui.showGUI, "GUI Thread" )
+    thread.start_new_thread( gui.showGUI, ("GUI Thread") )
     xboxCont.start()
