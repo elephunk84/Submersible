@@ -6,6 +6,7 @@ import sys
 import os
 import socket
 import subprocess
+from resources.gui.app import *
 import resources.XboxController as XboxController
 from pythonzenity import Warning, Message, Error
     
@@ -30,5 +31,10 @@ def setBase():
             
 if __name__ == "__main__":
     setBase()
-    subprocess.Popen('resources/gui/app.py')
     xboxCont.start()
+    gettext.install("app") # replace with the appropriate catalog name
+    app = wx.App(0)
+    MainWindow = MyFrame(None, wx.ID_ANY, "")
+    app.SetTopWindow(MainWindow)
+    MainWindow.Show()
+    app.MainLoop()
