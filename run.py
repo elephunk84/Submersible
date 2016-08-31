@@ -33,8 +33,6 @@ def setBase():
             
 if __name__ == "__main__":
     setBase()
+    subprocess.Popen('resources/gui/app.py')
     xboxCont.start()
-    while program_run == True:
-        subprocess.Popen('resources/gui/app.py')
-    else:
-        xboxCont.stop()
+    
